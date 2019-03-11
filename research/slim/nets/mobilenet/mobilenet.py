@@ -274,6 +274,8 @@ def mobilenet_base(  # pylint: disable=invalid-name
 
       end_point = 'layer_%d' % (i + 1)
       try:
+        if i == 0:
+          net = tf.pad(net, [[0, 0], [1, 1], [1, 1], [0, 0]])
         net = opdef.op(net, **params)
       except Exception:
         print('Failed to create op %i: %r params: %r' % (i, opdef, params))

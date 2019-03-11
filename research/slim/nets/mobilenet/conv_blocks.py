@@ -262,7 +262,8 @@ def expanded_conv(input_tensor,
     else:
       inner_size = expansion_size
 
-    if inner_size > net.shape[3]:
+    # if inner_size > net.shape[3]:
+    if True:
       net = split_conv(
           net,
           inner_size,
